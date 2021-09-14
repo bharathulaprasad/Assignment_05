@@ -1,0 +1,47 @@
+#1.Perform the following tasks:
+#  (a) Import mtcars dataset.
+#  (b) Visualize your data using scatter plots
+#  (c) Compute the Correlation between mpg and wt variables.
+
+mtcars
+head(mtcars)
+library(ggplot2)
+#Creating a Basic Scatterplot
+ggplot(mtcars, aes(wt, y=mpg)) + geom_point()
+#Add names to x and y axis
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point() + scale_x_continuous("Weight of Car") + scale_y_continuous("Miles Per Gallon")
+
+#Caluclate the correlation coefficient
+cor(mtcars$wt, mtcars$mpg)
+
+
+#2
+#Perform the following:
+#  (a) Define a normalized vector P.
+#  (b) Define a normalized vector Q.
+#  (c) Combine P and Q as matrix object. Please note that when defining a matrix from
+#  vectors, the vectors should be combined as rows.
+#  (d) Compute the Euclidean Distance with default parameters
+
+
+# define a probability density function P
+P <- 1:10/sum(1:10)
+# define a probability density function Q
+Q <- 20:29/sum(20:29)
+
+# combine P and Q as matrix object
+x <- rbind(P,Q)
+
+library(philentropy)
+
+# compute the Euclidean Distance with default parameters
+distance(x, method = "euclidean")
+
+# euclidean 
+# 0.1280713 
+
+# 3. Compute Manhattan distance and cosine similarity after performing (a),(b),(c) steps of
+# Q.2.
+distance(x, method = "manhattan")
+# manhattan 
+# 0.3525046 
